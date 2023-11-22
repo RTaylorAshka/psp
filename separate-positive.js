@@ -3,14 +3,18 @@ function separatePositive(arr) {
     let lidx = 0
     let ridx = arr.length - 1
 
-    while (lidx < ridx) {
+   while (lidx < ridx) {
 
-        if (arr[lidx] < 0) {
-            let temp = arr.splice(lidx, 1)[0]
-            arr.push(temp)
+        if (arr[lidx] > 0) {
+            lidx++
+        } else if (arr[ridx] < 0) {
             ridx--
         } else {
+            temp = arr[ridx]
+            arr[ridx] = arr[lidx]
+            arr[lidx] = temp
             lidx++
+            ridx--
         }
 
     }
